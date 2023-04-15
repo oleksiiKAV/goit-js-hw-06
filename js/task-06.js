@@ -15,7 +15,7 @@ const textInput = document.querySelector("#validation-input");
 
 textInput.addEventListener("blur", () => {
     // textInput.value = "";
-    if (Number(textInput.getAttribute("data-length")) > textInput.value.length) {
+    if (Number(textInput.getAttribute("data-length")) !== textInput.value.length) {
         textInput.classList.add("invalid")
         textInput.classList.remove("valid")
     } else {

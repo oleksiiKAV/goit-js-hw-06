@@ -18,14 +18,13 @@ title.textContent = "Vegetables";
 h2.append(title);
 
 const ingredientsList = document.querySelector('#ingredients');
-
+const listItems = [];
 // Итерируем по каждому ингредиенту и создаем новый элемент списка
 ingredients.forEach(ingredient => {
   const li = document.createElement('li');
   li.textContent = ingredient;
   li.classList.add('item');
-
   // Добавляем новый элемент в список
-  ingredientsList.append(li);
+  listItems.push(li);
 });
-
+ingredientsList.append(...listItems);

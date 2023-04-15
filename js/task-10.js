@@ -29,16 +29,31 @@ const createBtn = document.querySelector('[data-create]');
 const destroyBtn = document.querySelector('[data-destroy]');
 const boxes = document.querySelector('#boxes');
 
+function isBoxes() {
+  let retXY = []
+  if (boxes.lastChild !== null) {
+    retXY[0] = Number.parseInt(boxes.lastChild.style.width) + 10
+    retXY[1] = Number.parseInt(boxes.lastChild.style.height) + 10
+    return retXY
+  } return null;
+}
 
 function createBoxes(amount) {
-  let size = 30;
+  // let size = [30, 30];
+  // let sz = isBoxes();
+  // if (sz) {
+  //   size = sz
+  // }
+  let size = isBoxes() ? isBoxes() : [30, 30];
+
   for (let i = 0; i < amount; i += 1) {
     const box = document.createElement('div');
-    box.style.width = `${size}px`;
-    box.style.height = `${size}px`;
+    box.style.width = `${size[0]}px`;
+    box.style.height = `${size[1]}px`;
     box.style.backgroundColor = getRandomHexColor();
     boxes.appendChild(box);
-    size += 10;
+    size[0] += 10;
+    size[1] += 10;
   }
 }
 
