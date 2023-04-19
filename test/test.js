@@ -16,6 +16,8 @@ describe('Add a new pet', function () {
         expect(response.status).to.equal(200);
         console.log(response.status)
         expect(response.data.name).to.equal('Fluffy');
+
         expect(response.data.status).to.equal('available');
+
     });
 });
